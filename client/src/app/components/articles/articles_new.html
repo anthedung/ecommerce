@@ -37,6 +37,18 @@
       <form name="orderForm" ng-submit="vm.submitForm(order)">
         <div layout-gt-sm="row">
           <md-input-container class="md-block" flex-gt-sm>
+            <label class="anthe-black-label">Tên sản phẩm: {{vm.selectedProduct.title}}</label>
+          </md-input-container>
+          <md-input-container class="md-block" flex-gt-sm>
+            <label>Số lượng {{vm.selectedProduct.unit}}</label>
+            <input ng-model="order.quantity" required>
+          </md-input-container>
+          <md-input-container ng-if="vm.selectedProduct.price > 0" class="md-block" flex-gt-sm>
+            <label>Tổng tiền: {{vm.selectedProduct.price * order.quantity | currency:"VND":0 }}</label>
+          </md-input-container>
+        </div>
+        <div layout-gt-sm="row">
+          <md-input-container class="md-block" flex-gt-sm>
             <label>Số Điện Thoại (e.g. 091 234 5678)</label>
             <input ng-model="order.phone" required>
             <!--<div ng-messages="orderForm.order.phone.$error" ng-show="orderForm.order.phone.$dirty">-->
@@ -52,18 +64,7 @@
             <input ng-model="order.facebook">
           </md-input-container>
         </div>
-        <div layout-gt-sm="row">
-          <md-input-container class="md-block" flex-gt-sm>
-            <label class="anthe-black-label">Tên sản phẩm: {{vm.selectedProduct.title}}</label>
-          </md-input-container>
-          <md-input-container class="md-block" flex-gt-sm>
-            <label>Số lượng {{vm.selectedProduct.unit}}</label>
-            <input ng-model="order.quantity" required>
-          </md-input-container>
-          <md-input-container ng-if="vm.selectedProduct.price > 0" class="md-block" flex-gt-sm>
-            <label>Tổng tiền: {{vm.selectedProduct.price * order.quantity | currency:"VND":0 }}</label>
-          </md-input-container>
-        </div>
+
         <md-input-container class=" md-block">
           <label>Hướng dẫn giao hàng (vd. tự đến lấy, giao tận nhà, chỉ giao buổi tối)</label>
           <textarea ng-model="order.instruction"></textarea>
