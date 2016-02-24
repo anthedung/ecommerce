@@ -120,7 +120,7 @@
         $log.debug('toggle left is done');
         if (quote == null || vm.selectedProduct == null) {
           vm.showInvalidInvalidProduct();
-        } else if (isNaN(quote.quantity) || isNaN(quote.phone.replace(/W/, ""))) {
+        } else if (isNaN(quote.quantity) || isNaN(quote.phone.replace(/[W\s]/, ""))) {
           vm.showInvalidQuantity();
         } else {
           quote.product_id = vm.selectedProduct.id;

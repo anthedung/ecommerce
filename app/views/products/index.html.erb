@@ -31,8 +31,8 @@
         <td><%= product.isNew %></td>
         <td><%= product.likeNo %></td>
         <td><%= link_to 'Xem', ProductsController::Home_Page+product.id.to_s %></td>
-        <td><%= link_to 'Sửa', ProductsController::Home_Page+product.id.to_s+'/edit', method: :put %></td>
-        <td><%= link_to 'Xoa (can than!)', ProductsController::Home_Page+product.id.to_s+'/x', method: :delete, data: {confirm: 'Are you sure?'} %></td>
+        <td><%= link_to 'Sửa', ProductsController::Home_Page+product.id.to_s+'/edit/', method: :put %></td>
+        <td><%= link_to 'Xoa (can than!)', ProductsController::Home_Page+product.id.to_s+'/x/', method: :delete, data: {confirm: 'Are you sure?'} %></td>
       </tr>
   <% end %>
   </tbody>

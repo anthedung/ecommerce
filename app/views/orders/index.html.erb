@@ -29,8 +29,8 @@
         <td><%= order.price %></td>
         <td><%= order.instruction %></td>
         <td><%= link_to 'Show', OrdersController::Home_Page+order.id.to_s %></td>
-        <td><%= link_to 'Edit', OrdersController::Home_Page+order.id.to_s+'/edit', method: :put %></td>
-        <td><%= link_to 'Destroy', OrdersController::Home_Page+order.id.to_s+'/x', method: :delete, data: {confirm: 'Are you sure?'} %></td>
+        <td><%= link_to 'Edit', OrdersController::Home_Page+order.id.to_s+'/edit/', method: :put %></td>
+        <td><%= link_to 'Destroy', OrdersController::Home_Page+order.id.to_s+'/x/', method: :delete, data: {confirm: 'Are you sure?'} %></td>
       </tr>
   <% end %>
   </tbody>
