@@ -4,7 +4,7 @@ class ProductsController < ApplicationController
   skip_before_action :verify_authenticity_token
 
 
-  Home_Page = "/quanli/sanpham/"
+  Home_Page = "/quanli/products/"
 
   # GET /products
   # GET /products.json
