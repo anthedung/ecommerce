@@ -134,9 +134,9 @@ md-sidenav {
 }
 
 /*fonts*/
-@font-face { font-family: churli_cute; src: url('font/Churli_cute5.ttf'); }
-@font-face { font-family: "Baby_Moons"; src: url('font/Baby%20Moons%20Bold.ttf'); }
-@font-face { font-family: "Metro"; src: url('font/Metropolis%201920.otf'); }
+@font-face { font-family: churli_cute; src: url('./font/Churli_cute5.ttf'); }
+@font-face { font-family: "Baby_Moons"; src: url('./font/Baby%20Moons%20Bold.ttf'); }
+@font-face { font-family: "Metro"; src: url('./font/Metropolis%201920.otf'); }
 
 .menu {
   background-color: transparent;
