@@ -9,6 +9,7 @@ class CreateOrders < ActiveRecord::Migration
       t.integer :quantity
       t.integer :price
       t.text :instruction
+      t.string :product_title
 
       t.timestamps
     end
