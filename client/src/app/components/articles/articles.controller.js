@@ -124,11 +124,13 @@
         } else {
           quote.product_id = vm.selectedProduct.id;
           quote.price = vm.selectedProduct.price;
+          quote.product_title = vm.selectedProduct.title;
           $http.post('/api/orders', angular.toJson(quote)).success(function () {
             vm.successMessage = "Cám ơn bạn đã đặt hàng với BốngBi shop. Nếu cần gấp, vui lòng nhắn tin hoặc gọi điện theo số 0984 057 076";
             vm.showSuccess();
             vm.order = {};
             vm.orderPlaced = true;
+            console.log(quote);
           }).error(function () {
             vm.showError()
           });
