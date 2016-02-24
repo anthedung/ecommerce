@@ -130,7 +130,7 @@
             vm.showSuccess();
             vm.order = {};
             vm.orderPlaced = true;
-            console.log(quote);
+            console.log("order: " + quote);
           }).error(function () {
             vm.showError()
           });
