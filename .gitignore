@@ -25,5 +25,5 @@ config/env.development.yml
 
 # Ignore build path
 build/
-
+node_modules/
 
