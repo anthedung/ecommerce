@@ -2,6 +2,11 @@
 <br>
 <div class="anthe-specific-card" layout-align="center center" layout="row" flex="22" layout-padding="20">
   <md-card layout-padding="30">
+    <md-card-title align="center">
+      <md-card-title-text>
+        <span class="md-headline">{{vm.selectedProduct.title}}</span>
+      </md-card-title-text>
+    </md-card-title>
     <md-card-actions layout="row" layout-align="end center">
       <md-button ng-if="vm.selectedProduct.isNew" class="md-icon-button" aria-label="New"
                  href="https://www.facebook.com/thutrang.nguyen.54379">
@@ -16,14 +21,10 @@
       </md-button>
     </md-card-actions>
 
-    <md-card-title align="center">
-      <md-card-title-text>
-        <span class="md-headline">{{vm.selectedProduct.title}}</span>
-      </md-card-title-text>
-    </md-card-title>
 
-    <div .md-whiteframe-2dp layout-padding="10">
-      <img ng-src="{{vm.selectedProduct.image_url}}" class="md-card-image" alt="BongBi Shop">
+
+    <div .md-whiteframe-2dp layout-padding="40">
+      <img border="1px"  ng-src="{{vm.selectedProduct.image_url}}" class="md-card-image" alt="BongBi Shop">
     </div>
 
     <md-card-content>
