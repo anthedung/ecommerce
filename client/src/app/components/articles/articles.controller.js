@@ -47,8 +47,16 @@
         }
       });
 
+      vm.getStandardDescLength = function(description) {
+        console.log("getStandardDescLength " + description );
+        if ('' + description.length < 160) {
+          return description;
+        } else {
+          return description.substring(0, 157) + "...";
+        }
+      }
 
-      // util
+      // utils
       function makeHashTags(hashtags) {
         var tagsArr = hashtags.split(",");
         var joined;
@@ -60,18 +68,21 @@
       }
 
       function processImageUrl(imgUrl) {
-        //console.log(imgUrl);
+        console.log("1:" + imgUrl);
         if (imgUrl == null) {
           return null;
         } else {
           var arr = imgUrl.split(',');
+          console.log("2:" + arr);
           var arr2 = [];
-          for (var j = 0; j < arr.size; j++) {
-            var after = imgUrl.replace('www.dropbox.com', 'dl.dropboxusercontent.com')
+          for (var j = 0; j < arr.length; j++) {
+            console.log("3" + arr[j]);
+            var after = arr[j].replace('www.dropbox.com', 'dl.dropboxusercontent.com')
               .replace(/\?.*/i, "");
-            //console.log(after);
+            console.log(after);
             arr2.push(after);
           }
+          console.log("processImageUrl: " + arr2 );
           return arr2;
         }
       }

@@ -8,14 +8,11 @@
   /** @ngInject */
   function routerConfig($stateProvider, $urlRouterProvider) {
     $stateProvider
-      .state('linhtinh', {
-        url: '/~',
-        templateUrl: 'app/components/credits/main.html',
-        controller: 'MainController',
-        params: {
-          portfolioId: null,
-        },
-        controllerAs: 'main'
+      .state('specific', {
+        url: '/specific/:id',
+        templateUrl: 'app/components/articles/article.html',
+        controller: 'ArticlesController',
+        controllerAs: 'vm'
       })
       .state('home', {
         url: '/',

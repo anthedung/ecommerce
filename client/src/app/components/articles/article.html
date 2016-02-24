@@ -1,0 +1,37 @@
+<!--<md-content>-->
+<br>
+<div class="anthe-specific-card" layout-align="center center" layout="row" flex="22" layout-padding="20">
+  <md-card layout-padding="30">
+    <md-card-actions layout="row" layout-align="end center">
+      <md-button ng-if="vm.selectedProduct.isNew" class="md-icon-button" aria-label="New"
+                 href="https://www.facebook.com/thutrang.nguyen.54379">
+        <md-icon md-svg-icon="assets/svg/new_star.svg"></md-icon>
+      </md-button>
+      <md-button ng-href="#order/{{vm.selectedProduct.id}}" class="md-icon-button" aria-label="Shop"
+                 ng-click="vm.selectvm.selectedProduct(vm.selectedProduct)">
+        <md-icon md-svg-icon="assets/svg/shopping-purse-icon.svg"></md-icon>
+      </md-button>
+      <md-button class="md-icon-button" aria-label="Facebook" href="https://www.facebook.com/thutrang.nguyen.54379">
+        <md-icon md-svg-icon="assets/svg/facebook-logo.svg"></md-icon>
+      </md-button>
+    </md-card-actions>
+
+    <md-card-title align="center">
+      <md-card-title-text>
+        <span class="md-headline">{{vm.selectedProduct.title}}</span>
+      </md-card-title-text>
+    </md-card-title>
+
+    <div .md-whiteframe-2dp layout-padding="10">
+      <img ng-src="{{vm.selectedProduct.image_url}}" class="md-card-image" alt="Washed Out">
+    </div>
+
+    <md-card-content>
+      <p>"{{vm.selectedProduct.description}}"</p>
+      <div ng-if="vm.selectedProduct.price > 0">
+        <p>Giá: {{vm.selectedProduct.price | currency:"":0}}k</p>
+      </div>
+    </md-card-content>
+  </md-card>
+</div>
+<!--</md-content>-->

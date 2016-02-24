@@ -32,6 +32,11 @@ md-sidenav {
   .anthe-banner-text{
     font-size: 30px;
   }
+
+  .anthe-specific-card{
+    padding: 30px;
+    align-self: center !important;
+  }
 }
 
 .hashtags {

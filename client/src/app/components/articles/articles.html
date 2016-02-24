@@ -54,6 +54,7 @@
   <md-card ng-repeat="product in vm.searchedProducts | orderBy: 'isNew':false" layout-padding="7px">
 
     <md-card-actions layout="row" layout-align="end center">
+
       <md-button ng-if="product.isNew" class="md-icon-button" aria-label="New"
                  href="https://www.facebook.com/thutrang.nguyen.54379">
         <md-icon md-svg-icon="assets/svg/new_star.svg"></md-icon>
@@ -65,24 +66,28 @@
       <md-button class="md-icon-button" aria-label="Facebook" href="https://www.facebook.com/thutrang.nguyen.54379">
         <md-icon md-svg-icon="assets/svg/facebook-logo.svg"></md-icon>
       </md-button>
+
     </md-card-actions>
 
-    <md-card-title>
+    <md-card-title align="center">
       <md-card-title-text>
-        <span class="md-headline">{{product.title}}</span>
+        <span class="-headline">{{product.title}}</span>
       </md-card-title-text>
     </md-card-title>
 
     <div .md-whiteframe-2dp layout-padding="10">
       <img ng-src="{{product.image_url}}" class="md-card-image" alt="Washed Out">
-    </div>
+      <!--</div>-->
+      <md-card-actions layout-align="right">
+        <md-button href="#specific/{{product.id}}">Chi tiết</md-button>
+      </md-card-actions>
+      <md-card-content ng-href="#specific/{{product.id}}">
+        <p>"{{vm.getStandardDescLength(product.description)}}"</p>
+        <div ng-if="product.price > 0">
+          <p>Giá: {{product.price | currency:"VND":0}}</p>
+        </div>
+      </md-card-content>
 
-    <md-card-content>
-      <p>"{{product.description}}"</p>
-      <div ng-if="product.price > 0">
-        <p>Giá: {{product.price | currency:"":0}}k</p>
-      </div>
-    </md-card-content>
 
   </md-card>
 
