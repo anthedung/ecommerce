@@ -22,8 +22,8 @@
 
     function linkFunc(scope, el) {
       var typist = malarkey(el[0], {
-        typeSpeed: 100,
-        deleteSpeed: 100,
+        typeSpeed: 150,
+        deleteSpeed: 80,
         pauseDelay: 800,
         loop: true,
         postfix: ' '

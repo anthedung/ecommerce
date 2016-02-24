@@ -22,8 +22,18 @@
 <body ng-cloak layout="column" ng-controller="ArticlesController as vm">
 
 <div layout-align="center center" layout="row" flex="22" min-height="120">
-  <div flex="22" class="anthe-banner-text">
-    <h1 style="font-family:'Metro'; color: deeppink"> BongBi Shop </h1>
+  <div layout="column">
+    <div layout="row" class="anthe-running-banner">
+      &#9829;
+      <acme-malarkey class="anthe-running-banner"
+                     extra-values="['Hàng xách tay cho mẹ và bé', '0984 056 076    |    0997 887 968', '23 Núi Đôi, Thị Trấn Sóc Sơn, Hà Nội (Hiệu ảnh Bình Chúc)']">
+      </acme-malarkey>
+    </div>
+
+    <div flex="22" class="anthe-banner-text">
+      <h1 style="font-family:'Metro'; color: deeppink"> BongBi Shop </h1>
+    </div>
+
   </div>
   <img src="assets/images/bongncar.png" height="150px">
 </div>
@@ -87,14 +97,19 @@
   <!--</md-list-item>-->
   <!--</md-list>-->
   <!--</md-sidenav>-->
-  <div flex layout="column" tabIndex="-1" role="main" class="md-whiteframe-z2">
+  <div flex layout="column" tabIndex="-1" role="main">
     <md-content flex id="content" class="anthe-content">
       <br>
       <div ui-view></div>
+      <br>
+      <br>
+      <md-divider></md-divider>
+      <p align="center">Copyright © 2016 An The Dung - ABCStudio</p>
+
+
     </md-content>
   </div>
 </div>
-
 
 <!-- *** DO NOT DELETE THIS TRUNK BELOW ***-->
 
