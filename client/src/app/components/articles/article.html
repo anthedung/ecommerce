@@ -23,7 +23,7 @@
     </md-card-title>
 
     <div .md-whiteframe-2dp layout-padding="10">
-      <img ng-src="{{vm.selectedProduct.image_url}}" class="md-card-image" alt="Washed Out">
+      <img ng-src="{{vm.selectedProduct.image_url}}" class="md-card-image" alt="BongBi Shop">
     </div>
 
     <md-card-content>
@@ -32,6 +32,10 @@
         <p>Giá: {{vm.selectedProduct.price | currency:"":0}}k</p>
       </div>
     </md-card-content>
+
+    <div .md-whiteframe-2dp layout-padding="10" ng-repeat="image in vm.selectedProduct.image_sub_urls">
+      <img ng-src="{{vm.selectedProduct.image_url}}" class="md-card-image" alt="Bong Bi Shop">
+    </div>
   </md-card>
 </div>
 <!--</md-content>-->

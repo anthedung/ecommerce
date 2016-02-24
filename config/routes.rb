@@ -12,6 +12,15 @@ Rails.application.routes.draw do
   patch ProductsController::Home_Page+':id', to: 'products#update'
   get ProductsController::Home_Page+'/:id/x', to: 'products#destroy'
 
+  #products
+  get OrdersController::Home_Page, to: 'orders#index'
+  get OrdersController::Home_Page+'/new', to: 'orders#new'
+  post OrdersController::Home_Page, to: 'orders#create'
+  get OrdersController::Home_Page+':id', to: 'orders#show'
+  get OrdersController::Home_Page+':id/edit', to: 'orders#edit'
+  patch OrdersController::Home_Page+':id', to: 'orders#update'
+  get OrdersController::Home_Page+'/:id/x', to: 'orders#destroy'
+
 
   scope '/api' do
     resources :quotes, defaults: {format: :json}

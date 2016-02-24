@@ -16,6 +16,11 @@ md-sidenav {
     flex-flow: row wrap
   }
 
+  .anthe-quote-specific {
+    display: flex;
+    flex-flow: row wrap
+  }
+
   .anthe-quote md-card {
     width: 31%;
   }

@@ -16,6 +16,7 @@
         for (var i = 0; i < res.length; i++) {
           res[i].image_sub_urls = processImageUrl(res[i].image_url);
           res[i].image_url = res[i].image_sub_urls ? res[i].image_sub_urls[0] : '';
+          res[i].image_sub_urls.shift();
 
           //quotesArr.push(res[i].content);
           if (res[i].id == $stateParams.id) {
@@ -130,7 +131,7 @@
             vm.showSuccess();
             vm.order = {};
             vm.orderPlaced = true;
-            console.log("order: " + quote);
+            console.log("order: " + JSON.stringify(quote));
           }).error(function () {
             vm.showError()
           });
