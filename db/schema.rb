@@ -25,6 +25,7 @@ ActiveRecord::Schema.define(version: 20160223172204) do
     t.integer  "quantity"
     t.integer  "price"
     t.text     "instruction"
+    t.title    "product_title"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

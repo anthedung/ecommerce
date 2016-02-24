@@ -3,6 +3,7 @@
 <table border="1">
   <thead>
   <tr>
+    <th>Mã sản phẩm</th>
     <th>Tên</th>
     <th>Miêu tả</th>
     <th>Thể loại</th>
@@ -19,6 +20,7 @@
   <tbody>
   <% @products.each do |product| %>
       <tr>
+        <td><%= product.id %></td>
         <td><%= product.title %></td>
         <td><%= product.description %></td>
         <td><%= product.category %></td>
