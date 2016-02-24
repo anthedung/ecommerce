@@ -6,17 +6,23 @@
   font-weight: 400;
   src: url(../../bower_components/material-design-iconfont/iconfont/MaterialIcons-Regular.eot); /* For IE6-8 */
   src: local('Material Icons'),
-       local('MaterialIcons-Regular'),
-       url(../../bower_components/material-design-iconfont/iconfont/MaterialIcons-Regular.woff2) format('woff2'),
-       url(../../bower_components/material-design-iconfont/iconfont/MaterialIcons-Regular.woff) format('woff'),
-       url(../../bower_components/material-design-iconfont/iconfont/MaterialIcons-Regular.ttf) format('truetype');
+  local('MaterialIcons-Regular'),
+  url(../../bower_components/material-design-iconfont/iconfont/MaterialIcons-Regular.woff2) format('woff2'),
+  url(../../bower_components/material-design-iconfont/iconfont/MaterialIcons-Regular.woff) format('woff'),
+  url(../../bower_components/material-design-iconfont/iconfont/MaterialIcons-Regular.ttf) format('truetype'),
+  url(../../bower_components/material-design-iconfont/iconfont/Metropolis1920.otf) format('metro_bower');
+}
+
+@font-face {
+  font-family: "Metro";
+  src: url(../../bower_components/material-design-iconfont/iconfont/Metropolis1920.otf);
 }
 
 .material-icons {
   font-family: 'Material Icons';
   font-weight: normal;
   font-style: normal;
-  font-size: 24px;  /* Preferred icon size */
+  font-size: 24px; /* Preferred icon size */
   display: inline-block;
   width: 1em;
   height: 1em;
@@ -83,8 +89,6 @@ section.jumbotron h1 {
   width: 100px;
 }
 
-
-
 /*app css*/
 /* Toolbar area */
 md-select.md-myAwesome-theme {
@@ -117,11 +121,11 @@ md-sidenav {
     padding: 20px;
   }
 
-  .anthe-banner-text{
+  .anthe-banner-text {
     font-size: 30px;
   }
 
-  .anthe-specific-card{
+  .anthe-specific-card {
     padding: 30px;
     align-self: center !important;
   }
@@ -134,9 +138,20 @@ md-sidenav {
 }
 
 /*fonts*/
-@font-face { font-family: churli_cute; src: url('./font/Churli_cute5.ttf'); }
-@font-face { font-family: "Baby_Moons"; src: url('./font/Baby%20Moons%20Bold.ttf'); }
-@font-face { font-family: "Metro"; src: url('./font/Metropolis1920.otf'); }
+@font-face {
+  font-family: churli_cute;
+  src: url('./font/Churli_cute5.ttf');
+}
+
+@font-face {
+  font-family: "Baby_Moons";
+  src: url('./font/Baby%20Moons%20Bold.ttf');
+}
+
+@font-face {
+  font-family: "Metro";
+  src: url('./font/Metropolis1920.otf');
+}
 
 .menu {
   background-color: transparent;
@@ -158,8 +173,6 @@ md-sidenav {
   color: deeppink !important;
   max-height: 40px !important;
 }
-
-
 
 md-toolbar h3 {
   margin: auto;
@@ -256,8 +269,6 @@ span.name {
   padding-left: 5px;
 }
 
-
-
 /*anthe*/
 /*// dropdown http://codepen.io/damotamas/pen/NqWJKK*/
 .md-button.dropdown {
@@ -266,7 +277,7 @@ span.name {
   z-index: 10;
 }
 
-.anthe-order-form{
+.anthe-order-form {
   position: relative;
 }
 
@@ -297,18 +308,18 @@ span.name {
   color: black !important;
 }
 
-.anthe-search-product-bar{
+.anthe-search-product-bar {
   max-width: 600px !important;
   min-width: 300px !important;
   align-self: center;
 }
 
-.anthe-search-product-bar-master{
+.anthe-search-product-bar-master {
   align-self: center !important;
   padding: 18px;
 }
 
-.anthe-success{
+.anthe-success {
   color: deeppink;
   align-self: center !important;
 }
