@@ -325,5 +325,5 @@ span.name {
 }
 
 .anthe-running-banner{
-  color: hotpink;
+  color: hotpink !important;
 }
