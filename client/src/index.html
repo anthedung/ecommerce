@@ -1,95 +1,128 @@
 <!doctype html>
 <html ng-app="angularRails">
-   <head>
-      <meta charset="utf-8">
-      <title>An Tweetie Bot</title>
-      <meta name="description" content="">
-      <meta name="viewport" content="width=device-width">
-      <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
-      <!-- build:css({.tmp/serve,src}) styles/vendor.css -->
-      <!-- bower:css -->
-      <!-- run `gulp inject` to automatically populate bower styles dependencies -->
-      <!-- endbower -->
-      <!-- endbuild -->
-      <!-- build:css({.tmp/serve,src}) styles/app.css -->
-      <!-- inject:css -->
-      <!-- css files will be automatically insert here -->
-      <!-- endinject -->
-      <!-- endbuild -->
-      <link rel="stylesheet" href="./assets/app.css"/>
-   </head>
-   <body ng-cloak layout="column">
+<head>
+  <meta charset="utf-8">
+  <title>BongBi Shop</title>
+  <meta name="description" content="">
+  <meta name="viewport" content="width=device-width">
+  <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
+  <!-- build:css({.tmp/serve,src}) styles/vendor.css -->
+  <!-- bower:css -->
+  <!-- run `gulp inject` to automatically populate bower styles dependencies -->
+  <!-- endbower -->
+  <!-- endbuild -->
+  <!-- build:css({.tmp/serve,src}) styles/app.css -->
+  <!-- inject:css -->
+  <!-- css files will be automatically insert here -->
+  <!-- endinject -->
+  <!-- endbuild -->
+  <link rel="stylesheet" href="./assets/app.css"/>
+</head>
+<body ng-cloak layout="column" ng-controller="ArticlesController as vm">
 
-      <md-toolbar md-scroll-shrink ng-controller="ArticlesController as vm">
-         <h4 align="center">
-            <md-icon md-svg-icon="./assets/svg/social-twitter-circular-button.svg" class="avatar"></md-icon>
-            An Tweetie Bot - Fun time credit to 
-            <acme-malarkey extra-values="['Ruby on Rails', 'AngularJS', 'Yeoman', 'Gulp Angular team', 'Flaticon', 'TradeGecko', 'Heroku']" >
-            </acme-malarkey>
-            &#9829;
-         </h4>
-         <md-button id="main" class="menu" hide-gt-sm ng-click="vm.toggleList()" aria-label="Show User List" >
-           <md-icon md-svg-icon="./assets/svg/menu.svg" ></md-icon>
-         </md-button>
-      </md-toolbar>
-      <div layout="row" flex >
-         <md-sidenav class="site-sidenav md-sidenav-left md-whiteframe-z2" 
-            md-component-id="left"
-            ng-click="vm.toggleList()" aria-label="Show User List"
-            md-is-locked-open="$mdMedia('gt-sm')" >
-            <md-list>
-               <md-list-item>
-                  <md-button href="#quotes" ng-class="">
-                     <md-icon md-svg-icon="./assets/svg/quotations-button.svg" class="avatar"></md-icon>
-                     All Quotes
-                  </md-button>
-               </md-list-item>
-               <md-list-item>
-                  <md-button href="#new">
-                     <md-icon md-svg-icon="./assets/svg/add-btn.svg" class="avatar"></md-icon>
-                     Add New Quote
-                  </md-button>
-               </md-list-item>
-               <md-list-item>
-                  <md-button ng-click="" href="#aboutme" ng-class="">
-                     <md-icon md-svg-icon="./assets/svg/new-email-outline-symbol-in-black-circular-button.svg" class="avatar"></md-icon>
-                     Talk to Me
-                  </md-button>
-               </md-list-item>
-               <md-list-item>
-                  <md-button ng-click=""  href="#~"  ng-class="">
-                     <md-icon md-svg-icon="./assets/svg/credit-card-in-a-circle.svg" class="avatar"></md-icon>
-                     Credit
-                  </md-button>
-               </md-list-item>
-            </md-list>
-         </md-sidenav>
-         <div flex layout="column" tabIndex="-1" role="main" class="md-whiteframe-z2">
-            <md-content flex id="content">
-               <div ui-view></div>
-            </md-content>
-         </div>
-      </div>
-      <!-- build:js(src) scripts/vendor.js -->
-      <!-- bower:js -->
-      <!-- run `gulp inject` to automatically populate bower script dependencies -->
-      <!-- endbower -->
-      <!-- endbuild -->
-      <!-- build:js({.tmp/serve,.tmp/partials,src}) scripts/app.js -->
-      <!-- inject:js -->
-      <!-- js files will be automatically insert here -->
-      <!-- endinject -->
-      <!-- inject:partials -->
-      <!-- angular templates will be automatically converted in js and inserted here -->
-      <!-- endinject -->
-      <!-- endbuild -->
-      <!-- <script src="../node_modules/angular/angular.js"></script>
-         <script src="../node_modules/angular-animate/angular-animate.js"></script>
-         <script src="../node_modules/angular-aria/angular-aria.js"></script>
-         <script type="text/javascript" src="../node_modules/angular-material/angular-material.js"></script>
-         
-         <script src="./src/users/Users.js"></script>
-         <script src="./src/users/UserController.js"></script> -->
-      <script src="./src/users/UserService.js"></script>
-   </body>
+<div layout-align="center center" layout="row" flex="22" min-height="120">
+  <div flex="22" class="anthe-banner-text">
+    <h1 style="font-family:'Metro'; color: deeppink"> BongBi Bhop </h1>
+  </div>
+  <img src="assets/images/bongncar.png" height="150px">
+</div>
+<md-divider></md-divider>
+<md-toolbar md-scroll-shrink class="thinToolbar2" layout-align="center center">
+  <div layout="row" layout-align="center">
+    <div flex="22" layout-padding="20">
+      <md-button ng-click="" href="#" ng-class="">
+        Bống Bi Shop
+      </md-button>
+    </div>
+    <div flex="22" layout-padding="20">
+      <md-button ng-click="" href="#order/0" ng-class="">
+        Đặt Hàng
+      </md-button>
+    </div>
+    <div flex="22" layout-padding="20">
+      <md-button ng-click="" href="#~" ng-class="">
+        Liên Hệ
+      </md-button>
+    </div>
+    <!--<md-button layout-align="center" id="main" class="menu" hide-gt-sm ng-click="vm.toggleList()"-->
+    <!--aria-label="Show User List">-->
+    <!--<md-icon md-svg-icon="./assets/svg/menu.svg"></md-icon>-->
+    <!--</md-button>-->
+  </div>
+
+</md-toolbar>
+<md-divider></md-divider>
+
+<div layout="row" flex>
+  <!--<md-sidenav class="site-sidenav md-sidenav-left md-whiteframe-z2 anthe-sidenav"-->
+  <!--md-component-id="left"-->
+  <!--ng-click="vm.toggleList()" aria-label="Show User List"-->
+  <!--md-is-locked-open="$mdMedia('gt-sm')">-->
+  <!--<md-list>-->
+  <!--<md-list-item>-->
+  <!--<md-button href="#quotes" ng-class="">-->
+  <!--<md-icon md-svg-icon="./assets/svg/quotations-button.svg" class="avatar"></md-icon>-->
+  <!--All Quotes-->
+  <!--</md-button>-->
+  <!--</md-list-item>-->
+  <!--<md-list-item>-->
+  <!--<md-button href="#new">-->
+  <!--<md-icon md-svg-icon="./assets/svg/add-btn.svg" class="avatar"></md-icon>-->
+  <!--Add New Quote-->
+  <!--</md-button>-->
+  <!--</md-list-item>-->
+  <!--<md-list-item>-->
+  <!--<md-button ng-click="" href="#aboutme" ng-class="">-->
+  <!--<md-icon md-svg-icon="./assets/svg/new-email-outline-symbol-in-black-circular-button.svg"-->
+  <!--class="avatar"></md-icon>-->
+  <!--Talk to Me-->
+  <!--</md-button>-->
+  <!--</md-list-item>-->
+  <!--<md-list-item>-->
+  <!--<md-button ng-click="" href="#~" ng-class="">-->
+  <!--<md-icon md-svg-icon="./assets/svg/credit-card-in-a-circle.svg" class="avatar"></md-icon>-->
+  <!--Credit-->
+  <!--</md-button>-->
+  <!--</md-list-item>-->
+  <!--</md-list>-->
+  <!--</md-sidenav>-->
+  <div flex layout="column" tabIndex="-1" role="main" class="md-whiteframe-z2">
+    <md-content flex id="content" class="anthe-content">
+      <br>
+      <div ui-view></div>
+    </md-content>
+  </div>
+</div>
+
+
+<!-- *** DO NOT DELETE THIS TRUNK BELOW ***-->
+
+
+<!-- build:js(src) scripts/vendor.js -->
+<!-- bower:js -->
+<!-- run `gulp inject` to automatically populate bower script dependencies -->
+<!-- endbower -->
+<!-- endbuild -->
+<!-- build:js({.tmp/serve,.tmp/partials,src}) scripts/app.js -->
+<!-- inject:js -->
+<!-- js files will be automatically insert here -->
+<!-- endinject -->
+<!-- inject:partials -->
+<!-- angular templates will be automatically converted in js and inserted here -->
+<!-- endinject -->
+<!-- endbuild -->
+<!-- <script src="../node_modules/angular/angular.js"></script>
+   <script src="../node_modules/angular-animate/angular-animate.js"></script>
+   <script src="../node_modules/angular-aria/angular-aria.js"></script>
+   <script type="text/javascript" src="../node_modules/angular-material/angular-material.js"></script>
+
+   <script src="./src/users/Users.js"></script>
+   <script src="./src/users/UserController.js"></script> -->
+<script src="./src/users/UserService.js"></script>
+
+<script type="text/javascript">
+
+</script>
+
+</body>
 </html>

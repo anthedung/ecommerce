@@ -1,0 +1,49 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Title:</strong>
+  <%= @product.title %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @product.description %>
+</p>
+
+<p>
+  <strong>Category:</strong>
+  <%= @product.category %>
+</p>
+
+<p>
+  <strong>Image url:</strong>
+  <%= @product.image_url %>
+</p>
+
+<p>
+  <strong>Quantity:</strong>
+  <%= @product.quantity %>
+</p>
+
+<p>
+  <strong>Price:</strong>
+  <%= @product.price %>
+</p>
+
+<p>
+  <strong>Unit:</strong>
+  <%= @product.unit %>
+</p>
+
+<p>
+  <strong>Isnew:</strong>
+  <%= @product.isNew %>
+</p>
+
+<p>
+  <strong>Likeno:</strong>
+  <%= @product.likeNo %>
+</p>
+
+<%= link_to 'Edit', ProductsController::Home_Page+@product.id.to_s+"/edit" %> |
+<%= link_to 'Back', ProductsController::Home_Page %>

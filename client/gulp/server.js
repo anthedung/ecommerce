@@ -16,7 +16,7 @@ function browserSyncInit(baseDir, browser) {
   browser = browser === undefined ? 'default' : browser;
 
   var routes = null;
-  if(baseDir === conf.paths.src || (util.isArray(baseDir) && baseDir.indexOf(conf.paths.src) !== -1)) {
+  if (baseDir === conf.paths.src || (util.isArray(baseDir) && baseDir.indexOf(conf.paths.src) !== -1)) {
     routes = {
       '/bower_components': 'bower_components'
     };
@@ -26,8 +26,10 @@ function browserSyncInit(baseDir, browser) {
     baseDir: baseDir,
     routes: routes,
     middleware: [
-    proxyMiddleware('/api', { target: 'http://localhost:3000' })
-  ]
+      proxyMiddleware('/api', {target: 'http://localhost:3000'}),
+      proxyMiddleware('/quanli', {target: 'http://localhost:3000'})
+
+    ]
   };
 
   /*
@@ -52,15 +54,15 @@ browserSync.use(browserSyncSpa({
 }));
 
 //anthe - above var exec also
-gulp.task('rails', function() {
-    exec("rails server");
-  });
+gulp.task('rails', function () {
+  exec("rails server");
+});
 
 gulp.task('serve', ['watch'], function () {
   browserSyncInit([path.join(conf.paths.tmp, '/serve'), conf.paths.src]);
 });
 
-// anthe 
+// anthe
 gulp.task('serve:full-stack', ['rails', 'serve']);
 
 

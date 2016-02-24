@@ -1,4 +1,49 @@
 /* Toolbar area */
+md-select.md-myAwesome-theme {
+  margin: 0;
+  padding: 0;
+}
+
+md-sidenav {
+  width: 200px !important;
+  position: relative !important;
+}
+
+/*big screen*/
+@media only screen and (min-width: 800px) {
+  .anthe-quote {
+    display: flex;
+    flex-flow: row wrap
+  }
+
+  .anthe-quote md-card {
+    width: 31%;
+  }
+
+  .anthe-content {
+    padding-left: 100px !important;
+    padding-right: 100px !important;
+  }
+
+  .anthe-menu-bar {
+    padding: 20px;
+  }
+
+  .anthe-banner-text{
+    font-size: 30px;
+  }
+}
+
+.hashtags {
+  /*position: absolute;*/
+  bottom: 0;
+  left: 0;
+}
+
+/*fonts*/
+@font-face { font-family: churli_cute; src: url('font/Churli_cute5.ttf'); }
+@font-face { font-family: "Baby_Moons"; src: url('font/Baby%20Moons%20Bold.ttf'); }
+@font-face { font-family: "Metro"; src: url('font/Metropolis%201920.otf'); }
 
 .menu {
   background-color: transparent;
@@ -7,6 +52,20 @@
   margin: 16px;
   width: 36px;
 }
+
+.thinToolbar {
+  height: 35px;
+  min-height: 35px;
+  max-height: 70px;
+  color-rendering: grey !important;
+}
+
+.thinToolbar2 {
+  background-color: deeppink !important;
+  color: deeppink !important;
+  max-height: 40px !important;
+}
+
 
 
 md-toolbar h3 {
@@ -17,26 +76,25 @@ md-toolbar h3 {
 /* Sidenav area */
 
 md-list-item > button {
-  width:100%;
-  text-align:left !important;
-  height:70px;;
+  width: 100%;
+  text-align: left !important;
+  height: 70px;;
 }
 
 md-icon.avatar {
   margin-right: 20px;
 }
 
-  md-list .md-button.selected {
-    color: #03a9f4;
-  }
-
+md-list .md-button.selected {
+  color: #03a9f4;
+}
 
 button#main {
   margin-bottom: 10px;
 }
 
 md-sidenav > md-toolbar {
-  height:64px;
+  height: 64px;
 }
 
 md-list-item {
@@ -45,11 +103,9 @@ md-list-item {
 
 /* Primary content area */
 
-
-#content  {
-  padding-left: 40px;
-  padding-right: 40px;
-  padding-top: 5px;
+#content {
+  padding-left: 20px;
+  padding-right: 20px;
 }
 
 #content .md-button.contact {
@@ -68,26 +124,24 @@ md-list-item {
 }
 
 #content .md-button.contact > md-icon {
-  fill:black;
-  width:36px;
-  height:36px;
+  fill: black;
+  width: 36px;
+  height: 36px;
 }
-
 
 #content .md-button.contact:active > md-icon {
   background-color: #dadada;
   border-radius: 75%;
-  padding:4px;
+  padding: 4px;
   transition: all 100ms ease-out 30ms;
 }
-
 
 /* Utils */
 
 /* Typography support coming in 0.8.0 */
 
 .avatar {
-  position:relative;
+  position: relative;
   width: 54px;
   height: 54px;
   border: 1px solid #ddd;
@@ -99,13 +153,69 @@ md-list-item {
 
 }
 
-
-md-bottom-sheet  md-icon {
-  margin-right:20px;
+md-bottom-sheet md-icon {
+  margin-right: 20px;
 }
 
 span.name {
   font-weight: bold;
-  font-size:1.1em;
-  padding-left:5px;
+  font-size: 1.1em;
+  padding-left: 5px;
+}
+
+
+
+/*anthe*/
+/*// dropdown http://codepen.io/damotamas/pen/NqWJKK*/
+.md-button.dropdown {
+  overflow: visible; /*reset*/
+  /*position: absolute;*/
+  z-index: 10;
+}
+
+.anthe-order-form{
+  position: relative;
+}
+
+.dropdown .dropdown-menu {
+  max-width: 0;
+  position: absolute;
+  top: 100%;
+  padding: 7px;
+  opacity: 0;
+  overflow: hidden;
+  background-color: #fff;
+  list-style: none;
+  transition: min-width 0.2s ease-in-out, left 0.2s ease-in-out, opacity 0.2s ease-in-out;
+}
+
+.dropdown .dropdown-menu .md-button {
+  min-width: 100%;
+  border-radius: 0;
+  padding: 6px;
+}
+
+.dropdown.active .dropdown-menu {
+  max-width: 300px; /* set a maxwidth bigger than the widest element */
+  opacity: 1;
+}
+
+.anthe-black-label {
+  color: black !important;
+}
+
+.anthe-search-product-bar{
+  max-width: 600px !important;
+  min-width: 300px !important;
+  align-self: center;
+}
+
+.anthe-search-product-bar-master{
+  align-self: center !important;
+  padding: 18px;
+}
+
+.anthe-success{
+  color: deeppink;
+  align-self: center !important;
 }

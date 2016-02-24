@@ -1,4 +1,4 @@
-(function() {
+(function () {
   'use strict';
 
   angular
@@ -17,5 +17,16 @@
     toastrConfig.preventDuplicates = true;
     toastrConfig.progressBar = true;
   }
+
+
+  angular
+    .module('angularRails')
+    .config(['$mdThemingProvider', function ($mdThemingProvider) {
+    $mdThemingProvider.theme('myAwesome')
+      .primaryPalette('blue')
+      .accentPalette('cyan')
+      .warnPalette('red');
+    $mdThemingProvider.setDefaultTheme('myAwesome');
+  }]);
 
 })();

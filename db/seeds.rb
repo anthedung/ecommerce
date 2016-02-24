@@ -1,6 +1,22 @@
 # This file should contain all the record creation needed to seed the database with its default values.
 # The data can then be loaded with the rake db:seed (or created alongside the db with db:setup).
 
+
+Product.create(
+    [
+        {title: 'Trứng Kinder', description: 'Quả thật bán trứng nhiều mới hiểu vì sao bé nào cũng mê mẩn cái món này đến thế. Scl thì đúng tiêu chuẩn Châu Âu ngon giã man, đồ chơi thì bé bé xinh xinh cơ mà xịn vô cùng. Mỗi món đồ chơi đc thiết kế rất tinh sảo, ví như con gà quay ngược lại sẽ là lừa, con ngựa Pony thì đẹp vô cùng, tóc dài như thật luôn......Nói túm lại, nó có sức cuốn hút thật kỳ diệu.
+Cm mua nhiều sẽ đc bớt tí ti nha.', category: 'Bé', quantity: '100', price: '28000', image_url: 'https://www.dropbox.com/s/namthjhbinjmjcj/Trung.jpg?dl=0'},
+        {title: 'Bột ăn dặm Kawa', description: '""Chị oi! E bắt đền c đấy, con em ăn bột Fucto nghiện rồi mà c lại hết. Em bắt đền c đấy....""Hí hí....
+Bị khách bắt đền mà em vẫn thấy sướng cơ chứ. Bột lại về thêm phục vụ các con ak', category: 'Bé', quantity: '100', price: '', image_url: 'https://www.dropbox.com/s/irzihuyhssk0pvg/Kawa_andam.jpg?dl=0'},
+        {title: 'Prospan', description: 'Sau những ngày cháy hàng, giờ em ý đã về rồi cả nhà ui Chính là siro Prospan đấy ak!!! Con cứ húng hắng ho là mẹ cứ tẩn ngay em nó là Ok ngay, ko phải dùng tới kháng sinh đâu ak
+Liên hệ : Shop Bống Bi- 23 Núi Đôi
+( Tầng 2 Áo cưới Bình Chúc)', category: 'Bé', quantity: '100', price: '', image_url: 'https://www.dropbox.com/s/2ann64v2q5hesds/prospan.jpg?dl=0'},
+        {title: 'Nho Úc', description: 'Nhanh thế lại chuẩn bị đến rằm tháng riêng rùi!!! Em lại chuẩn bị về Nho Úc nhé cả nhà
+Hom Trc khách đặt nguyên 1 thùng mà ngon quá trời. Vừa tươi lại vừa ngọt.
+Xin mời các thượng đế đặt hàng nha!!!', category: '', quantity: '', price: '', image_url: 'https://www.dropbox.com/s/jnbhzflvjk82h09/nho_den.jpg?dl=0'}
+    ])
+
+
 Quote.create(
     [
         {author: 'Judy Garland', content: 'Always be a first-rate version of yourself, instead of a second-rate version of somebody else.', hashtags: 'confidence'},

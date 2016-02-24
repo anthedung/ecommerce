@@ -1,0 +1,41 @@
+<h1>Listing products</h1>
+
+<table border="1">
+  <thead>
+  <tr>
+    <th>Title</th>
+    <th>Description</th>
+    <th>Category</th>
+    <th>Image url</th>
+    <th>Quantity</th>
+    <th>Price</th>
+    <th>Unit</th>
+    <th>Isnew</th>
+    <th>Likeno</th>
+    <th colspan="3">Hanh Dong</th>
+  </tr>
+  </thead>
+
+  <tbody>
+  <% @products.each do |product| %>
+      <tr>
+        <td><%= product.title %></td>
+        <td><%= product.description %></td>
+        <td><%= product.category %></td>
+        <td><%= product.image_url %></td>
+        <td><%= product.quantity %></td>
+        <td><%= product.price %></td>
+        <td><%= product.unit %></td>
+        <td><%= product.isNew %></td>
+        <td><%= product.likeNo %></td>
+        <td><%= link_to 'Xem', ProductsController::Home_Page+product.id.to_s %></td>
+        <td><%= link_to 'Sửa', ProductsController::Home_Page+product.id.to_s+'/edit', method: :put %></td>
+        <td><%= link_to 'Xoa (can than!)', ProductsController::Home_Page+product.id.to_s+'/x', method: :delete, data: {confirm: 'Are you sure?'} %></td>
+      </tr>
+  <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Product', ProductsController::Home_Page+'new/' %>

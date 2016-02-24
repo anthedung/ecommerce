@@ -1,8 +1,31 @@
 Rails.application.routes.draw do
+  resources :orders
+
+  resources :products
+
+  #products
+  get ProductsController::Home_Page, to: 'products#index'
+  get ProductsController::Home_Page+'/new', to: 'products#new'
+  post ProductsController::Home_Page, to: 'products#create'
+  get ProductsController::Home_Page+':id', to: 'products#show'
+  get ProductsController::Home_Page+':id/edit', to: 'products#edit'
+  patch ProductsController::Home_Page+':id', to: 'products#update'
+  get ProductsController::Home_Page+'/:id/x', to: 'products#destroy'
+
+
   scope '/api' do
     resources :quotes, defaults: {format: :json}
+    resources :products, defaults: {format: :json}
+    resources :orders, defaults: {format: :json}
+
   end
-  
+
+  scope '/quanli' do
+    resources :quotes, defaults: {format: :html}
+    resources :products, defaults: {format: :html}
+    resources :orders, defaults: {format: :html}
+
+  end
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

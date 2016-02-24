@@ -1,29 +1,83 @@
-<div layout="column" ng-cloak class="md-inline-form">
+<div layout="column" ng-cloak class="md-inline-form anthe-order-form">
+  <!--<div layout="row" layout-align="center center">-->
+  <!--<md-button class="md-primary dropdown" ng-click="myDropdownIsActive=!myDropdownIsActive"-->
+  <!--ng-class="{active:myDropdownIsActive}">-->
+  <!--{{vm.selectedProduct.title}}-->
+  <!--<ul class="dropdown-menu md-whiteframe-z1">-->
+  <!--<li ng-repeat="item in vm.products" ng-click="vm.selectProduct(item)">{{item.title}}-->
+  <!--<li>-->
+  <!--</ul>-->
+  <!--</md-button>-->
+  <!--</div>-->
+  <h3 align="center">Đặt Hàng Online </h3>
 
-  <h3 align="center"> An Interesting Quote </h3>
+  <div class="anthe-search-product-bar" layout-align="center center">
+    <md-autocomplete
+      md-no-cache="vm.noCache"
+      md-selected-item="vm.selectedItem"
+      md-search-text-change="vm.searchTextChange(vm.searchText)"
+      md-search-text="vm.searchText"
+      md-selected-item-change="vm.selectedItemChange(item)"
+      md-items="item in vm.querySearch(vm.searchText)"
+      md-item-text="item.title"
+      md-min-length="0"
+      placeholder="Tìm sản phẩm khác cho bạn">
+      <md-item-template>
+        <span md-highlight-text="vm.searchText" md-highlight-flags="^i">{{item.title}}</span>
+      </md-item-template>
+      <md-not-found>
+        Không tìm thấy sản phẩm "{{vm.searchText}}". Thử tìm có dấu?
+      </md-not-found>
+    </md-autocomplete>
+  </div>
+
+
   <md-content layout-padding>
     <div>
-      <form name="quoteForm" ng-submit="vm.submitForm(quote)">
+      <form name="orderForm" ng-submit="vm.submitForm(order)">
         <div layout-gt-sm="row">
           <md-input-container class="md-block" flex-gt-sm>
-            <label>Author</label>
-            <input ng-model="quote.author">
+            <label>Số Điện Thoại (e.g. 091 234 5678)</label>
+            <input ng-model="order.phone" required>
+            <!--<div ng-messages="orderForm.order.phone.$error" ng-show="orderForm.order.phone.$dirty">-->
+            <!--<div ng-message="required">Không thể bỏ trống</div>-->
+            <!--</div>-->
           </md-input-container>
           <md-input-container class="md-block" flex-gt-sm>
-            <label>Hashtags (e.g. life, death, love)</label>
-            <input ng-model="quote.hashtags">
+            <label>Tên gọi</label>
+            <input ng-model="order.name" required>
+          </md-input-container>
+          <md-input-container class="md-block" flex-gt-sm>
+            <label>Facebook (nếu có)</label>
+            <input ng-model="order.facebook">
           </md-input-container>
         </div>
+        <div layout-gt-sm="row">
+          <md-input-container class="md-block" flex-gt-sm>
+            <label class="anthe-black-label">Tên sản phẩm: {{vm.selectedProduct.title}}</label>
+          </md-input-container>
+          <md-input-container class="md-block" flex-gt-sm>
+            <label>Số lượng {{vm.selectedProduct.unit}}</label>
+            <input ng-model="order.quantity" required>
+          </md-input-container>
+          <md-input-container ng-if="vm.selectedProduct.price > 0" class="md-block" flex-gt-sm>
+            <label>Tổng tiền: {{vm.selectedProduct.price * order.quantity | currency:"VND":0 }}</label>
+          </md-input-container>
+        </div>
+        <md-input-container class=" md-block">
+          <label>Hướng dẫn giao hàng (vd. tự đến lấy, giao tận nhà, chỉ giao buổi tối)</label>
+          <textarea ng-model="order.instruction"></textarea>
+        </md-input-container>
         <md-input-container class="md-block">
-          <label>Quote</label>
-          <input ng-model="quote.content">
+          <label>Địa chỉ (nếu giao hàng tận nơi)</label>
+          <input ng-model="order.address">
         </md-input-container>
         <br>
-        
-        <md-button class="md-raised primary" type="submit"> Save it </md-button>
+        <div layout="column" layout-align="center">
+          <spam class="anthe-success">{{vm.successMessage}}</spam>
+          <md-button class="md-raised primary" ng-disabled="vm.orderPlaced" type="submit"> Đặt hàng</md-button>
+        </div>
       </form>
     </div>
   </md-content>
-
-  <h4 align="center"> ... and An Tweetie Bot will do the job ;) </h4>
 </div>

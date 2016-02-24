@@ -1,45 +1,169 @@
-(function() {
+(function () {
   'use strict';
 
   angular.module('angularRails')
-    .controller('ArticlesController', function ($http, $mdSidenav, $mdToast, $log, Articles) {
+    .controller('ArticlesController', function ($http, $mdSidenav, $mdToast, $log, $stateParams, Articles, Products) {
       var vm = this;
-      Articles.query(function (res) {
-        vm.articles = res;
+
+      vm.orderPlaced = false;
+      vm.selectProduct = function selectProduct(product) {
+        console.log("$stateParams: " + product);
+        vm.selectedProduct = product
+      };
+
+      Products.query(function (res) {
+        var quotesArr = [];
+        for (var i = 0; i < res.length; i++) {
+          res[i].image_sub_urls = processImageUrl(res[i].image_url);
+          res[i].image_url = res[i].image_sub_urls ? res[i].image_sub_urls[0] : '';
+
+          //quotesArr.push(res[i].content);
+          if (res[i].id == $stateParams.id) {
+            vm.selectedProduct = res[i];
+            quotesArr.push(res[i].title);
+          }
+        }
+        console.log(res)
+        vm.products = res;
+        vm.searchedProducts = res;
+        vm.productTitles = quotesArr;
+        console.log(quotesArr);
+
       });
-       
 
-    vm.showSuccess = function($event) {
-      $mdToast.showSimple('Quote saved! May the luck be ever in your favor (to see it).');
-    };
+      Articles.query(function (res) {
+        // process to get tags
+        var quotesArr = [];
+        for (var i = 1; i < res.length; i++) {
+          res[i].hashtags = makeHashTags(res[i].hashtags);
+          quotesArr.push(res[i].content);
+        }
+        //console.log("quoteArr - an: " + quotesArr);
+        vm.articles = res;
+        vm.quotes = quotesArr;
+
+        function getQuotesArr() {
+          return quotesArr;
+        }
+      });
 
 
-    vm.showError = function($event) {
-      $mdToast.showSimple('Sorry... Something wrong with the Ruby guys. I will kick his ass!');
-    };
+      // util
+      function makeHashTags(hashtags) {
+        var tagsArr = hashtags.split(",");
+        var joined;
+        for (var j = 0; j < tagsArr.length; j++) {
+          joined = "#" + tagsArr[j].trim();
+        }
 
-    vm.showInvalid = function($event) {
-      $mdToast.showSimple("Sorry. You quote's length should be from 0 - 140 characters");
-    };
-
-    function toggleUsersList() {
-      $mdSidenav('left').toggle();
-    }
-
-    vm.toggleList = toggleUsersList;
-    
-    vm.submitForm = function(quote) {
-      $log.debug("posting data....");
-      $log.debug('toggle left is done');
-      if (quote == null || quote.content == null || quote.content.length == 0 || quote.content.length > 140) {
-        vm.showInvalid();
-      } else {
-        $http.post('/api/quotes', angular.toJson(quote)).success(function(){
-          vm.showSuccess()
-        }).error(function(){
-          vm.showError()
-        });
+        return joined;
       }
-     };
+
+      function processImageUrl(imgUrl) {
+        //console.log(imgUrl);
+        if (imgUrl == null) {
+          return null;
+        } else {
+          var arr = imgUrl.split(',');
+          var arr2 = [];
+          for (var j = 0; j < arr.size; j++) {
+            var after = imgUrl.replace('www.dropbox.com', 'dl.dropboxusercontent.com')
+              .replace(/\?.*/i, "");
+            //console.log(after);
+            arr2.push(after);
+          }
+          return arr2;
+        }
+      }
+
+      vm.showSuccess = function ($event) {
+        $mdToast.showSimple('Cám ơn bạn đã đặt hàng với BốngBi shop. Nếu cần gấp, vui lòng nhắn tin hoặc gọi điện theo số 0984 057 076');
+      };
+
+      vm.showError = function ($event) {
+        $mdToast.showSimple('Sorry... Something wrong with the Ruby guys. I will kick his ass!');
+      };
+
+      vm.showInvalid = function ($event) {
+        $mdToast.showSimple("Xin lỗi bạn đã điền thiếu thông tin. Mong kiểm tra lại!");
+      };
+
+      vm.showInvalidQuantity = function ($event) {
+        $mdToast.showSimple("Xin vui lòng kiểm tra lại số đt, hoặc số lượng (1,2,3) :)");
+      };
+
+      vm.showInvalidInvalidProduct = function ($event) {
+        $mdToast.showSimple("Xin lỗi bạn chưa chọn sản phẩm!");
+      };
+
+      function toggleUsersList() {
+        $mdSidenav('left').toggle();
+      }
+
+      vm.toggleList = toggleUsersList;
+
+      vm.submitForm = function (quote) {
+        $log.debug("selectedProductTitle data...." + vm.selectedProductTitle);
+        $log.debug("selectedProductTitle data...." + $stateParams.id);
+        $log.debug('toggle left is done');
+        if (quote == null || vm.selectedProduct == null) {
+          vm.showInvalidInvalidProduct();
+        } else if (isNaN(quote.quantity) || isNaN(quote.phone.replace(/W/, ""))) {
+          vm.showInvalidQuantity();
+        } else {
+          quote.product_id = vm.selectedProduct.id;
+          quote.price = vm.selectedProduct.price;
+          $http.post('/api/orders', angular.toJson(quote)).success(function () {
+            vm.successMessage = "Cám ơn bạn đã đặt hàng với BốngBi shop. Nếu cần gấp, vui lòng nhắn tin hoặc gọi điện theo số 0984 057 076";
+            vm.showSuccess();
+            vm.order = {};
+            vm.orderPlaced = true;
+          }).error(function () {
+            vm.showError()
+          });
+        }
+      };
+
+
+      // SEARCH
+      vm.isDisabled = false;
+      vm.selectedItem = vm.selectedProduct;
+      // list of `state` value/display objects
+      vm.querySearch = querySearch;
+      vm.selectedItemChange = selectedItemChange;
+      vm.searchTextChange = searchTextChange;
+      // ******************************
+      // Internal methods
+      // ******************************
+      function querySearch(query) {
+        var results = query ? vm.products.filter(createFilterFor(query)) : vm.products,
+          deferred;
+        vm.searchedProducts = results;
+        return results;
+      }
+
+      function searchTextChange(text) {
+        $log.info('Text changed to ' + text);
+      }
+
+      function selectedItemChange(item) {
+        $log.info('Item changed to ' + JSON.stringify(item));
+        vm.selectedProduct = item;
+      }
+
+
+      /**
+       * Create filter function for a query string
+       */
+      function createFilterFor(query) {
+        var lowercaseQuery = angular.lowercase(query);
+        console.log("query: " + query);
+        return function filterFn(state) {
+          console.log("state: " + state);
+          console.log("state: " + state.title);
+          return (angular.lowercase(state.title).indexOf(lowercaseQuery) > -1);
+        };
+      }
+
     });
 })();

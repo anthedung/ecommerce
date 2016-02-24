@@ -1,13 +1,94 @@
-<div class="container">
+<!--<div class="anthe-quote" layout-align="center">-->
 
-	<md-list-item class="md-3-line" ng-repeat="article in vm.articles">
-        <div class="md-list-item-text">
-        <br>
-          <h4></h4>
-          <h3>"{{article.content}}" ~ {{article.author}}</h3>
-          <h5>Hashtags: {{article.hashtags}}</h5>
-        </div>
-    		<md-divider md-inset ng-if="!$last"></md-divider>
-		</md-list-item>
-  </md-list> 
+<!--<md-list-item class="md-3-line" ng-repeat="article in vm.articles">-->
+<!--<div class="md-list-item-text">-->
+<!--<br>-->
+<!--<h4></h4>-->
+<!--<h3>"{{article.content}}" ~ {{article.author}}</h3>-->
+<!--<h5>Hashtags: {{article.hashtags}}</h5>-->
+<!--</div>-->
+<!--<md-divider md-inset ng-if="!$last"></md-divider>-->
+<!--</md-list-item>-->
+<!--</md-list>-->
+
+<!--<md-card ng-repeat="article in vm.articles" flex class="anthe-card">-->
+
+<!--<img ng-src="assets/images/itsme.png" class="md-card-image" alt="Washed Out">-->
+<!--<md-card-content>-->
+<!--<p>"{{article.content}}" ~ {{article.author}}</p>-->
+<!--<h5>Hashtags: {{article.hashtags}}</h5>-->
+<!--</md-card-content>-->
+
+<!--<md-card-actions layout="row" layout-align="end center">-->
+<!--<md-button class="md-icon-button" aria-label="Share">-->
+<!--<md-icon md-svg-icon="assets/svg/share.svg"></md-icon>-->
+<!--</md-button>-->
+<!--<md-button class="md-icon-button" aria-label="Tweet">-->
+<!--<md-icon md-svg-icon="assets/svg/twitter.svg"></md-icon>-->
+<!--</md-button>-->
+<!--</md-card-actions>-->
+
+
+<!--</md-card>-->
+<div class="anthe-search-product-bar-master" layout-align="center">
+  <md-autocomplete
+    md-no-cache="vm.noCache"
+    md-selected-item="vm.selectedItem"
+    md-search-text-change="vm.searchTextChange(vm.searchText)"
+    md-search-text="vm.searchText"
+    md-selected-item-change="vm.selectedItemChange(item)"
+    md-items="item in vm.querySearch(vm.searchText)"
+    md-item-text="item.title"
+    md-min-length="0"
+    placeholder="Tìm sản phẩm cho bạn">
+    <md-item-template>
+      <span md-highlight-text="vm.searchText" md-highlight-flags="^i">{{item.title}}</span>
+    </md-item-template>
+    <md-not-found>
+      Không tìm thấy sản phẩm "{{vm.searchText}}". Thử tìm có dấu?
+    </md-not-found>
+  </md-autocomplete>
 </div>
+
+<div class="anthe-quote" layout-align="center">
+  <md-card ng-repeat="product in vm.searchedProducts | orderBy: 'isNew':false" layout-padding="7px">
+
+    <md-card-actions layout="row" layout-align="end center">
+      <md-button ng-if="product.isNew" class="md-icon-button" aria-label="New"
+                 href="https://www.facebook.com/thutrang.nguyen.54379">
+        <md-icon md-svg-icon="assets/svg/new_star.svg"></md-icon>
+      </md-button>
+      <md-button ng-href="#order/{{product.id}}" class="md-icon-button" aria-label="Shop"
+                 ng-click="vm.selectProduct(product)">
+        <md-icon md-svg-icon="assets/svg/shopping-purse-icon.svg"></md-icon>
+      </md-button>
+      <md-button class="md-icon-button" aria-label="Facebook" href="https://www.facebook.com/thutrang.nguyen.54379">
+        <md-icon md-svg-icon="assets/svg/facebook-logo.svg"></md-icon>
+      </md-button>
+    </md-card-actions>
+
+    <md-card-title>
+      <md-card-title-text>
+        <span class="md-headline">{{product.title}}</span>
+      </md-card-title-text>
+    </md-card-title>
+
+    <div .md-whiteframe-2dp layout-padding="10">
+      <img ng-src="{{product.image_url}}" class="md-card-image" alt="Washed Out">
+    </div>
+
+    <md-card-content>
+      <p>"{{product.description}}"</p>
+      <div ng-if="product.price > 0">
+        <p>Giá: {{product.price | currency:"":0}}k</p>
+      </div>
+    </md-card-content>
+
+  </md-card>
+
+</div>
+
+</div>
+</md-content>
+
+<!--</div>-->
