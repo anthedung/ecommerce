@@ -41,26 +41,35 @@
 <md-toolbar md-scroll-shrink class="thinToolbar2" layout-align="center center">
   <div layout="row" layout-align="center">
     <div flex="22" layout-padding="20">
-      <md-button ng-click="" href="#" ng-class="">
-        Bống Bi Shop
+      <md-button  ng-href="#" flex="22" class="anthe-button-text-btn">
+        <span hide-sm>BốngBi Shop</span>
+        <md-icon md-svg-icon="assets/svg/store.svg" class="anthe-menu-button"></md-icon>
+      </md-button>
+      <md-button  ng-href="#order/0" flex="22" class="anthe-button-text-btn">
+        <span hide-sm>Đặt Hàng</span>
+        <md-icon md-svg-icon="assets/svg/shopping-purse-icon-2.svg" class="anthe-menu-button"></md-icon>
+      </md-button>
+      <md-button  href="#aboutme" flex="22" layout-padding="20">
+        <span hide-sm>Liên Hệ</span>
+        <md-icon class="anthe-menu-button" md-svg-icon="assets/svg/telephone.svg"></md-icon>
       </md-button>
     </div>
-    <div flex="22" layout-padding="20">
-      <md-button ng-click="" href="#order/0" ng-class="">
-        Đặt Hàng
-      </md-button>
-    </div>
-    <div flex="22" layout-padding="20">
-      <md-button ng-click="" href="#aboutme" ng-class="">
-        Liên Hệ
-      </md-button>
-    </div>
-    <!--<md-button layout-align="center" id="main" class="menu" hide-gt-sm ng-click="vm.toggleList()"-->
-    <!--aria-label="Show User List">-->
-    <!--<md-icon md-svg-icon="./assets/svg/menu.svg"></md-icon>-->
-    <!--</md-button>-->
-  </div>
 
+    <!--<div  show-sm hide-lg hide-md hide-gt-lg layout="row" class="anthe-menu-icon-bar">-->
+    <!--<md-button class="md-icon-button " aria-label="New" href="#">-->
+    <!--<md-icon md-svg-icon="assets/svg/store.svg" class="anthe-menu-button"></md-icon>-->
+    <!--</md-button>-->
+    <!--<md-button class="md-icon-button " aria-label="New">-->
+    <!--</md-button>-->
+    <!--<md-button ng-href="#order/0" class="md-icon-button" aria-label="Shop">-->
+    <!--<md-icon md-svg-icon="assets/svg/shopping-purse-icon-2.svg" class="anthe-menu-button"></md-icon>-->
+    <!--</md-button>-->
+    <!--<md-button class="md-icon-button " aria-label="New"></md-button>-->
+    <!--<md-button class="md-icon-button " aria-label="Facebook" href="#aboutme">-->
+    <!--<md-icon class="anthe-menu-button" md-svg-icon="assets/svg/telephone.svg"></md-icon>-->
+    <!--</md-button>-->
+    <!--</div>-->
+  </div>
 </md-toolbar>
 <md-divider></md-divider>
 
