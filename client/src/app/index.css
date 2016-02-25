@@ -143,6 +143,12 @@ md-sidenav {
   }
 }
 
+/* <= iPhone 5*/
+@media only screen and (max-width : 320px) {
+  /* Styles */
+
+}
+
 .hashtags {
   /*position: absolute;*/
   bottom: 0;
@@ -356,4 +362,58 @@ span.name {
 .anthe-menu-icon-bar {
   display: flex;
   flex-flow: row wrap
+}
+
+
+/*big screen*/
+@media only screen and (min-width: 800px) {
+  .anthe-quote {
+    display: flex;
+    flex-flow: row wrap
+  }
+
+  .anthe-quote md-card {
+    width: 31%;
+  }
+
+  .anthe-content {
+    padding-left: 100px !important;
+    padding-right: 100px !important;
+  }
+
+  .anthe-menu-bar {
+    padding: 20px;
+  }
+
+  .anthe-banner-text {
+    font-size: 30px;
+  }
+
+  .anthe-specific-card {
+    padding: 30px;
+    align-self: center !important;
+  }
+}
+
+/* <= iPhone 5*/
+@media only screen and (max-width : 350px) {
+  /* Styles */
+  .anthe-menu-button {
+    height: 20px !important;
+    width: 20px !important;
+    min-width: 60px !important;
+  }
+
+  .anthe-banner-text {
+    font-size: 25px;
+    padding-left:10px;
+  }
+
+  .anthe-button-text-btn {
+    font-size: 21px;
+    padding-left:10px;
+    height: 20px !important;
+    width: 20px !important;
+    min-width: 60px !important;
+  }
 }
